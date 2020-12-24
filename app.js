@@ -1,11 +1,10 @@
 // DEFINE UI VARIABLES
 
-const form = document.querySelector('#task-form'); // the form tag
-const taskList = document.querySelector('.collection'); // starts blank/'invisible', appended li appended as user inputs tasks
-const clearBtn = document.querySelector('.clear-tasks'); // black button 'CLEAR TASKS' 
-const filter = document.querySelector('#filter'); // option at top of tasks list
-const taskInput = document.querySelector('#task'); // 'New task' input field
-
+const form = document.querySelector('#task-form'); // <form> the form tag
+const taskInput = document.querySelector('#task'); // <input> 'New task' input field
+const clearBtn = document.querySelector('.clear-tasks'); // <href> black button 'CLEAR TASKS' 
+const filter = document.querySelector('#filter'); // <input> option at top of tasks list
+const taskList = document.querySelector('.collection'); // <ul> tarts blank/'invisible', appended li appended as user inputs tasks
 
 // Load  event listener
 loadEventListeners();
@@ -13,7 +12,7 @@ loadEventListeners();
 
 // FUNCTION FOR LOADING EVENT LISTENER
 function loadEventListeners() {
-  // input tag within form has 'submit' as type, styled like a button. 'addTask' functioned called
+  // input tag within form has 'submit' as type, styled like a button. 'addTask' function called when user clicks on this
   form.addEventListener('submit', addTask)
 }
 
@@ -41,7 +40,7 @@ function addTask(e) {
   link.className = 'delete-item secondary content';
 
   // Add icon html
-  link.innerHTML = '<i class="fa fa-remove"></i>';
+  link.innerHTML = '<i class="fa  fa-remove"></i>';
 
   // Append the link to the li
   li.appendChild(link);
