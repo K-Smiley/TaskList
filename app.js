@@ -45,10 +45,23 @@ function addTask(e) {
   li.appendChild(link);
   // Append <li> to <ul>
   taskList.appendChild(li);
+  // Add list item to local storage
+  storeTaskInLocalStorage(taskInput.value);
   // Clear input after it's been appended below
   taskInput.value = '';
-
   e.preventDefault();
+}
+
+// FUNCTION TO ADD TO LOCAL STORAGE
+function storeTaskInLocalStorage(task) {
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // FUNCTION TO REMOVE  TASK
