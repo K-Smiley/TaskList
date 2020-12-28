@@ -14,11 +14,11 @@ loadEventListeners();
 function loadEventListeners() {
   // input tag within form has 'submit' as type, styled like a button. 'addTask' function called when user clicks on this
   form.addEventListener('submit', addTask)
-  // Event to remove task from list
+  // Remove task from list
   taskList.addEventListener('click', removeTask);
-  // Clear task event
+  // Clear all tasks in list
   clearBtn.addEventListener('click', clearTasks);
-  // Filter tasks event
+  // Filter tasks in list
   filter.addEventListener('keyup', filterTasks);
 }
 
@@ -37,11 +37,11 @@ function addTask(e) {
   li.appendChild(document.createTextNode(taskInput.value));
   // Create new <a> link element to hold  'x' to delete
   const link = document.createElement('a');
-  // Add .class
-  link.className = 'delete-item secondary content';
+  // Add .class to <a>
+  link.className = 'delete-item secondary-content';
   // Add <i> icon in html
   link.innerHTML = '<i class="fa  fa-remove"></i>';
-  // Append the link to the <li>
+  // Append the <a> to the <li>
   li.appendChild(link);
   // Append <li> to <ul>
   taskList.appendChild(li);
@@ -53,7 +53,7 @@ function addTask(e) {
 
 // FUNCTION TO REMOVE  TASK
 function removeTask(e) {
-  if (e.target.parentElement.classList.contains('delete-item')) {
+  if (e.target.parentElement.classList.contains('delete-item')) { // .class from addTask()
     if (confirm('Are you sure?')) {
       e.target.parentElement.parentElement.remove();
     }
@@ -62,8 +62,8 @@ function removeTask(e) {
 
 // FUNCTION TO CLEAR TASKS
 function clearTasks() {
-  while (taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild); // <ul> will remove all children <li>
+  while (taskList.firstChild) { // loop until no firstChild left
+    taskList.removeChild(taskList.firstChild); // <ul> will remove each <li>
   }
 }
 
