@@ -119,12 +119,9 @@ function removeTaskFromLocalStorage(taskItem) {
   tasks.forEach(function (task, index) {
     if (taskItem.textContent === task) {
       tasks.splice(index, 1);
-
     }
   });
-
   localStorage.setItem('tasks', JSON.stringify(tasks));
-
 }
 
 // FUNCTION TO CLEAR TASKS
